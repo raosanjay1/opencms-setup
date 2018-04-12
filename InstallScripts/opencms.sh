@@ -149,7 +149,7 @@ rm -f $opencms_config # clean up any pervious remnants of this file
 cat >> $opencms_config << EOF
 setup.webapp.path=$CATALINA_HOME/webapps/ROOT
 setup.default.webapp=ROOT
-setup.install.components=workplace,releasenotes,template3,devdemo,bootstrap
+setup.install.components=workplace,demo
 
 db.product=mysql
 db.provider=mysql
