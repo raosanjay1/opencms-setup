@@ -27,17 +27,17 @@ APACHE_TOMCAT_DOWNLOAD_PATH=http://mirror.reverse.net/pub/apache/tomcat/tomcat-8
   cd /opt;
   rm -f $APACHE_TOMCAT_FILE # remove any leftovers from previous runs
   rm -rf $CATALINA_HOME
-  wget $APACHE_TOMCAT_DOWNLOAD_PATH/$APACHE_TOMCAT_FILE
-  if [ $? != 0 ] then
-    echo "wget apache-tomcat download failed. Check wget works"
-    exit 1
-  fi
+  wget $APACHE_TOMCAT_DOWNLOAD_PATH/$APACHE_TOMCAT_FILE;
+#  if [ $? != 0 ] then
+#    echo "wget apache-tomcat download failed. Check wget works"
+#    exit 1
+#  fi
   mkdir  $CATALINA_HOME
   tar xvf $APACHE_TOMCAT_FILE -C $CATALINA_HOME --strip-components=1;
-  if [ $? != 0 ] then
-    echo "tar extraction of $APACHE_TOMCAT_FILE failed. Check disk space"
-    exit 1
-  fi
+#  if [ $? != 0 ] then
+#    echo "tar extraction of $APACHE_TOMCAT_FILE failed. Check disk space"
+#    exit 1
+#  fi
 )
 
 # set appropriate file permission
@@ -112,10 +112,10 @@ OPENCMS_DOWNLOAD_PATH=http://www.opencms.org/downloads/opencms
   cd /opt;
   rm -f $OPENCMS_FILE # remove any remnants of previous runs
   wget $OPENCMS_DOWNLOAD_PATH/$OPENCMS_FILE
-  if [ $? != 0 ] then
-    echo "wget opencms download failed. Check wget works"
-    exit 1
-  fi
+#  if [ $? != 0 ] then
+#    echo "wget opencms download failed. Check wget works"
+#    exit 1
+#  fi
   unzip $OPENCMS_FILE
 
   # deploy opencms.war as ROOT.war to make apache happy since we are running this in a three tier configuration: apache -> tomcat(opencms) -> mysql
@@ -135,10 +135,10 @@ sleep 5
 
 setup_file=$CATALINA_HOME/webapps/ROOT/WEB-INF/setup.sh
 chmod a+x $setup_file
-if [ $? != 0 ] then
-  echo "chmod setup.sh failed. Might be a race: tomcat deployment of opemcms might not have completed"
-  exit 1
-fi
+#if [ $? != 0 ] then
+#  echo "chmod setup.sh failed. Might be a race: tomcat deployment of opemcms might not have completed"
+#  exit 1
+#fi
 
 SERVER_IPADDR=192.168.33.11
 MYSQL_IPADDR=192.168.33.12
