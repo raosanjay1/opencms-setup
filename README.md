@@ -1,1 +1,0 @@
-# opencms-setup
