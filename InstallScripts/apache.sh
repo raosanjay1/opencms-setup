@@ -18,7 +18,7 @@ opencms_conf=/etc/httpd/conf.d/opencms.conf
 
 rm -rf $opencms_conf # remove any previously created file
 
-TOMCAT_SERV_IPADDR = 192.168.33.11
+TOMCAT_SERV_IPADDR=192.168.33.11
 
 cat >> $opencms_conf << EOF
 ProxyRequests Off
